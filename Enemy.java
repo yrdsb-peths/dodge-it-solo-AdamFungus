@@ -18,7 +18,11 @@ public class Enemy extends Actor
         if(getX() <= 0) {
             resetBanana();
         }
-        
+        if(isTouching(Hero.class)) {
+            Dead dead = new Dead();
+            getWorld().addObject(dead, 300, 200);
+            getWorld().removeObject(this);
+        }
         // Add your action code here.
     }
     public void resetBanana() {
